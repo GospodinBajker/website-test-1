@@ -1,0 +1,676 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transform: all .2s linear;
+    text-decoration: none;
+}
+
+$gold: #CCBA78;
+$black: #333;
+$dirty-white: #f5f5f5;
+$white: #fff;
+$border: .2rem solid $black;
+$box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+
+@mixin grid($val) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+    gap: 2rem;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+
+    &::-webkit-scrollbar {
+        width: 1rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $gold;
+    }
+}
+
+section {
+    padding: 5rem 9%;
+  }
+
+  .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    border: $border;
+    background: $white;
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: $black;
+
+    &:hover {
+        color: $white;
+        background: $gold;
+    }
+  }
+
+@keyframes fadeUp {
+    0% {
+        transform: translateY(4rem);
+        opacity: 0;
+    }
+}
+
+.header {
+    padding: 1.5rem 9%;
+    background: $white;
+    box-shadow: $box-shadow;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    .logo img {
+        height: 5rem;
+    }
+
+    .search-form {
+        height: 5rem;
+        width: 50rem;
+        border-radius: .5rem;
+        background-color: $dirty-white;
+        display: flex;
+        align-items: center;
+        padding: 0 1.5rem;
+
+        input {
+            background: none;
+            width: 100%;
+            font-size: 1.6rem;
+            color: $black;
+            text-transform: none;
+        }
+
+        label {
+            font-size: 2rem;
+            margin-left: .7rem;
+            color: $black;
+            cursor: pointer;
+
+            &:hover {
+                color: $gold;
+            }
+        }
+    }
+
+    .icons a,
+    .icons div {
+        height: 4.5rem;
+        width: 4.5rem;
+        line-height: 4.5rem;
+        text-align: center;
+        background: $dirty-white;
+        color: #333;
+        cursor: pointer;
+        font-size: 1.8rem;
+        margin-left: .3rem;
+        border-radius: .5rem;
+        
+        &:hover {
+            background: $gold;
+            color: $white;
+        }
+    }
+
+    #search-btn {
+        display: none;
+    }
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: -110%;
+    right: 0;
+    z-index: 1001;
+    height: 100%;
+    width: 100%;
+    background: url(../images/Usluge/18.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-flow: column;
+    align-items: flex-end;
+    padding-right: 15%;
+
+    &.active {
+        left: 0;
+    }
+
+    #close-navbar {
+        position: absolute;
+        top: 3rem;
+        right: 3rem;
+        height: 5rem;
+        width: 5rem;
+        line-height: 5rem;
+        text-align: center;
+        background: $white;
+        color: $black;
+        cursor: pointer;
+        font-size: 3rem;
+
+        &:hover {
+            color: $white;
+            background: $gold;
+        }
+    }
+
+    a {
+        font-size: 2rem;
+        color: $white;
+        font-weight: lighter;
+        text-transform: uppercase;
+
+        &:hover {
+            color: $gold;
+            letter-spacing: .2rem;
+        }
+    }
+}
+
+.home {
+    padding: 0;
+
+    .slide {
+        display: none;
+        height: calc(100vh - 8rem);
+
+        &.active {
+            display: flex;
+        }
+
+        .content {
+            width: 50%;
+            padding: 2rem 7%;
+            display: flex;
+            justify-content: center;
+            flex-flow: column;
+            align-items: flex-start;
+            background: #fce9fa;
+            position: relative;
+
+
+        img {
+            height: 25rem;
+            width: 25rem;
+            margin-bottom: 2rem;
+            animation: fadeUp .2s linear backwards .2s;
+            display: none;
+        }
+
+        span {
+            color: $gold;
+            display: block;
+            font-size: 2.5rem;
+            font-weight: bold;
+            padding-bottom: .5rem;
+            letter-spacing: .2rem;
+            text-transform: uppercase;
+            animation: fadeUp .2s linear backwards .4s;
+        }
+
+        h3 {
+            font-size: 5rem;
+            text-transform: uppercase;
+            color: $black;
+            animation: fadeUp .2s linear backwards .6s;
+        }
+
+        .btn {
+            animation: fadeUp .2s linear backwards .8s;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 12%;
+            right: -7rem;
+            
+            div {
+                height: 5rem;
+            width: 5rem;
+            line-height: 5rem;
+            text-align: center;
+            font-size: 3rem;
+            background: $dirty-white;
+            color: $black;
+            margin: 0 1rem;
+            box-shadow: $box-shadow;
+            cursor: pointer;
+
+            &:hover {
+                background: $gold;
+                color: $white;
+                transform: scale(1.1);
+            }
+            }
+        }
+    }
+
+        .image {
+            width: 50%;
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+.med-icons {
+    @include grid(16rem);
+
+.box {
+    padding:2rem;
+    border-radius: .5rem;
+    background: $black;
+    text-align: center;
+
+    &:hover {
+      background: $dirty-white;
+
+      img {
+        filter: invert(1);
+      }
+      p {
+        color:$black;
+      }
+    }
+
+    img {
+      height: 10rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.7rem;
+      color:$white;
+    }
+  }
+}
+
+.services, .product {
+
+    background-color: $dirty-white;
+
+    h3{
+        font-size: 3rem;
+        color:$black;
+        text-align: center;
+        padding-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+        padding-bottom: 1rem;;
+      }
+
+    .slide {
+    width: 33rem;
+
+        .image {
+            height: 33rem;
+            width: 100%;
+            overflow: hidden;
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                position: relative;
+            }
+        }
+
+        .content {
+            text-align: center;
+            padding: 1.5rem;
+
+            h3{
+                font-size: 1.5rem;
+                color: $black;
+            }
+        }
+    }
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 33rem; /* Full height like picture */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: initial;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    z-index: 1011;
+
+    p {
+        font-size: 1.2rem;
+        font-weight: 600;
+        padding: 1rem 1rem;
+    }
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    color: $white;
+    right: 0;
+    top: 0;
+    margin-right: 15px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: $gold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.educations {
+    background: url(/images/Usluge/2a.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+  
+    .content{
+      width: 55rem;
+      background: #fce9fa;
+      padding:3rem;
+  
+      span{
+        color:$gold;
+        font-size: 2rem;
+        font-weight: 800;
+      }
+  
+      h3{
+        padding-top: 1rem;
+        font-size: 3rem;
+        color:$black;
+      }
+  
+      p{
+        font-size: 1.5rem;
+        font-weight: 600;
+        color:$black;
+        line-height: 2;
+        padding:1rem 0;
+      }
+    }
+}
+
+.logo-in-mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24rem;
+    border-top: 1px solid $gold;
+    border-bottom: 1px solid $gold;
+
+    img {
+        height: 12rem;
+    }
+}
+
+.footer {
+    background: $black;
+  
+    .box-container {
+      @include grid(25rem);
+  
+      .box {
+  
+        h3 {
+          font-size: 2.2rem;
+          color:$white;
+          padding:1rem 0;
+        }
+  
+        .link {
+          padding:1rem 0;
+          display: block;
+          font-size: 1.5rem;
+          color:$white;
+  
+          i {
+            padding-right: .5rem;
+            color:$gold;
+          }
+  
+          &:hover{
+            color:$gold;
+  
+            i {
+              padding-right: 2rem;
+            }
+          }
+        }
+  
+        p {
+          font-size: 1.5rem;
+          color:$white;
+          padding:1rem 0;
+  
+          i {
+            padding-right: .5rem;
+            color:$gold;
+          }
+        }
+  
+        .share {
+          margin-top: 2rem;
+  
+          a {
+            height: 5rem;
+            width: 5rem;
+            background: $white;
+            border:$border;
+            font-size: 2rem;
+            line-height: 4.5rem;
+            color:$black;
+            text-align: center;
+            margin-right: .3rem;
+            
+            &:hover {
+              background: $gold;
+              color:$white;
+            }
+          }
+        }
+      }
+    }
+  
+    .credit {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 3rem;
+      padding:1rem;
+      border-top: 1px solid $white;
+      padding-top: 3rem;
+      color:$white;
+  
+      span {
+        color:$gold;
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// media queris
+
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+
+    .header {
+        padding: 1.5rem 2rem;
+    }
+
+    section {
+        padding: 3rem 2rem;
+      }
+
+      .home .slide {
+        .content {
+            padding: 2rem;
+
+            span {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 4rem;
+            }
+        }
+      }
+}
+
+@media (max-width: 768px) {
+    .header {
+        #search-btn {
+            display: inline-block;
+        }
+
+        .search-form {
+            position: absolute;
+            top: 99%;
+            left: 0;
+            border-top: $border;
+            border-bottom: $border;
+            width: 100%;
+            background: $white;
+            height: 6rem;
+            display: none;
+            animation: fadeUp .2s linear backwards;
+
+            &.active {
+                display: flex;
+            }
+        }
+    }
+
+    .home .slide {
+        position: relative;
+        height: calc(100vh - 6rem);
+
+        .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255, .7);
+            align-items: center;
+
+            img {
+                display: inline-block;
+                object-fit: cover;
+            }
+
+            .controls {
+                position: static;
+                margin-top: 7rem;
+
+                div {
+                    margin: 0 .5rem;
+                }
+            }
+        }
+    }
+
+    .image {
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+}
